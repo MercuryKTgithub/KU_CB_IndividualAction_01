@@ -131,7 +131,8 @@ header {
       text-align: center;
     }
 
-    .intro h2 {
+     /* H2a */
+    /* .intro h2 {
       display: inline-block;
       font-size: 55px;
       color: #024e76;
@@ -139,8 +140,8 @@ header {
       padding: 0 100px 20px 100px;
       border-bottom: 3px solid;
       border-color: #fce138;
-      /* border-top: 3px solid; */
-    }
+       
+    } */
 
     .intro p {
       line-height: 1.7;
@@ -148,4 +149,67 @@ header {
       width: 80%;
       font-size: 20px;
       margin: 0 auto; /*common tactic for centering a block element with a width of less than 100%:*/
+    }
+    /* End of What We Do Section */
+
+    /* Begin of What You Do Section */
+    .steps {
+      text-align: center;
+      background: #fce138;
+    }
+
+    .steps div {
+      margin-bottom: 80px;
+    }
+    
+    .steps img {
+      width: 15%;
+      margin: 10px 0;
+    }
+    
+    .steps h3 {
+      color: #024e76;
+      font-size: 46px;
+      margin-top: 10px;
+    }
+    
+    .steps p {
+      color: #39a6b2;
+      font-size: 23px;
+    }
+
+    .steps span {
+      font-size: 38px;
+    }
+
+   /* H2b */
+    /* .steps h2 {
+      font-size: 55px;
+      color: #024e76;
+      margin-bottom: 35px;
+      padding: 0 100px 20px 100px;
+      border-bottom: 3px solid;
+      border-color: #39a6b2;
+    } */
+
+    /*Combine H2a and H2b , 
+    do this class="section-title primary-border" for tag h2a
+    do this class="section-title secondary-border" for tag h2b
+    as followed: */
+
+    .section-title {
+      font-size: 55px;
+      color: #024e76;
+      margin-bottom: 35px;
+      padding: 0 100px 20px 100px;
+      display: inline-block;
+      border-bottom: 3px solid;
+    }
+    
+    .primary-border {
+      border-color: #fce138;
+    }
+    
+    .secondary-border {
+      border-color: #39a6b2;
     }
