@@ -125,3 +125,27 @@ header {
       padding: 10px 20px;
       font-size: 16px;
     }
+  /* End of Hero Section*/
+
+    .intro {
+      text-align: center;
+    }
+
+    .intro h2 {
+      display: inline-block;
+      font-size: 55px;
+      color: #024e76;
+      margin-bottom: 35px;
+      padding: 0 100px 20px 100px;
+      border-bottom: 3px solid;
+      border-color: #fce138;
+      /* border-top: 3px solid; */
+    }
+
+    .intro p {
+      line-height: 1.7;
+      color: #39a6b2;
+      width: 80%;
+      font-size: 20px;
+      margin: 0 auto; /*common tactic for centering a block element with a width of less than 100%:*/
+    }
