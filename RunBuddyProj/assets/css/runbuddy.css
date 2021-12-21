@@ -213,3 +213,57 @@ header {
     .secondary-border {
       border-color: #39a6b2;
     }
+
+    /* Begin of Meet the Trainers */
+    .trainers{
+      text-align: center;
+    }
+
+    .trainer {
+      width: 900px;
+      margin: 0 auto 30px auto;
+      /* By using auto as the values for the left and right margin, we're telling the 
+      browser to take whatever space is unused and evenly distribute it on those 
+      sides, centering the element. */
+      background: #024e76;
+      color: #fce138;
+      overflow: auto; 
+      /*The overflow property told the trainer's <article> element that it 
+      does in fact have content inside it, and that it needs to look for it 
+      and account for those two floated HTML elements' sizes*/
+    }
+
+    .trainer img {
+      width: 35%;
+      float: left;
+    }
+  
+    .trainer-bio {
+      padding: 35px;
+      float: left;
+      width: 65%;
+    }
+
+    .text-left {
+      text-align: left;
+    }
+    
+    .text-right {
+      text-align: right;
+    }
+
+    .trainer-bio h3 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    
+    .trainer-bio h4 {
+      font-weight: lighter;
+      font-size: 26px;
+      margin-bottom: 25px;
+    }
+    
+    .trainer-bio p {
+      font-size: 17px;
+      line-height: 2.3;
+    }
