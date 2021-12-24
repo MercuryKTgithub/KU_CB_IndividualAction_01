@@ -284,3 +284,30 @@ header {
       line-height: 2.3;
     }
 
+    /* .contact-info{
+      margin: 0;
+    } */
+
+    /* Define a Type Selector iframe (selects every HTML element of that type [iframe] ) */
+    .contact-info iframe {
+      width: 450px;
+      height: 400px;
+    }
+
+    .contact-info div {
+      width: 410px;
+      display: inline-block; /*This allows the .contact-info child container [nested div] to sit on the same row as the <iframe> element */
+      vertical-align: top; /*To lift content of the div up to the top or else it's defaut to bottom*/
+      text-align: left;
+      margin: 30px 0 0 60px;
+      color: white;
+    }
+
+    .contact {
+      text-align: center;
+      background: #024e76;
+    }
+
+    .contact h2 {
+      color: #fce138;
+    }

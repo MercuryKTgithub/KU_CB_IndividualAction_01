@@ -1,2 +1,1 @@
-Kimberly's Assignment 01    
-Full Name: Tran, Huong Kim
+Kimberly's Lab Exercises Lesson 1 to 7    
