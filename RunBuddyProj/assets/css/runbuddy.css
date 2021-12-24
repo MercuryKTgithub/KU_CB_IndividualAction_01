@@ -56,6 +56,7 @@ header {
     color: #024e76;
     font-size: 30px;
     margin: 0;
+    font-weight: normal;
   }
 
   /* Private Policy*/
@@ -67,6 +68,10 @@ header {
 
   footer a {
     color: #024e76;
+  }
+
+  #myid{
+    margin : 0;
   }
 
   section{
@@ -166,6 +171,15 @@ header {
       width: 15%;
       margin: 10px 0;
     }
+
+    .steps h2 {
+      font-size: 55px;
+      color: #024e76;
+      margin-bottom: 35px;
+      padding: 0 100px 20px 100px;
+      border-bottom: 3px solid;
+      border-color: #39a6b2;
+    }
     
     .steps h3 {
       color: #024e76;
@@ -236,11 +250,13 @@ header {
     .trainer img {
       width: 35%;
       float: left;
+       /* float: right; */
     }
   
     .trainer-bio {
       padding: 35px;
       float: left;
+      /* float: right; */
       width: 65%;
     }
 
@@ -267,3 +283,4 @@ header {
       font-size: 17px;
       line-height: 2.3;
     }
+
