@@ -82,10 +82,16 @@ header {
     .hero {
       background-image: url("../images/hero-bg.jpg ");
       height: 600px;
-      background-size: cover; /* what does this do*/
+      background-size: cover; /* tells the browser to make sure the image always covers the entire container, image might not be whole*/
       background-position: center; /* affect the bg image position*/
       position: relative; /* cant miss this*/
     }
+
+    /* Not officially in use - for double class reference illustration only */
+    /* .hero-secondary {
+      background-color: black;
+      color: red;
+    } */
   
     .hero-form {
       border: 3px solid #024e76;

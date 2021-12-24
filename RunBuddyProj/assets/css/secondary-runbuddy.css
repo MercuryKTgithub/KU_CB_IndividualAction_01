@@ -1,0 +1,63 @@
+/* .hero {
+        margin: 20px;
+        font-size: 20px;
+        background-color: white;
+        color: blue;
+      }
+       */
+/* these two colors will override the ones above in .hero */
+/* This secondary properties should be taken care when we do <section class="hero hero-secondary"></section>*/
+/* .hero-secondary {
+        background-color: black;
+        color: red;
+} */
+/* Three factors in CSS determine which styles get applied: 
+1. importance, 
+2. specificity, 
+3. and source order. 
+
+This is an example of source order affecting which style definitions win. */
+.hero {
+        background-position: bottom;
+        height: auto;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+/* Apply to h2 tag only */
+.page-title {
+        color: #fce138;
+        display: inline-block;
+        border-bottom: 4px solid #fce138;
+        padding: 0 80px 15px 80px;
+        font-weight: normal;
+        font-size: 42px;
+        font-style: italic;
+}     
+
+/* This class is applied on article container */
+.secondary-content {
+        width: 80%;
+        margin: 0 auto; /* Center this container*/
+        color: #024e76;
+      }
+
+.secondary-content h3 {
+        font-size: 25px;
+        margin: 20px 0;
+}  
+
+.secondary-content p {
+        font-size: 16px;
+        line-height: 1.5;  /* more space between line of text */
+        margin: 15px 0;
+      }
+      
+.secondary-content ul {
+        margin: 15px 20px; /* indend the bullets, move it right a little bit to align with the rest of the paragraph text*/
+      }  
+            
+.secondary-content li {
+        color: #39a6b2;
+        margin: 10px 0;
+}      
