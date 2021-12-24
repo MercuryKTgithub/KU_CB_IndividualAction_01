@@ -284,6 +284,7 @@ header {
       line-height: 2.3;
     }
 
+    /*REACH OUT STYLE BEGINS*/
     /* .contact-info{
       margin: 0;
     } */
@@ -299,15 +300,42 @@ header {
       display: inline-block; /*This allows the .contact-info child container [nested div] to sit on the same row as the <iframe> element */
       vertical-align: top; /*To lift content of the div up to the top or else it's defaut to bottom*/
       text-align: left;
-      margin: 30px 0 0 60px;
+      margin: 40px 0 0 60px;
       color: white;
+    }
+
+    .contact-info h3 {
+      color: #fce138;
+      font-size: 32px;
+    }
+    
+    /* .contact-info p {
+      margin: 20px 0;
+      line-height: 1.5;
+      font-size: 20px;
+      font-style: normal;
+    } */
+
+    .contact-info p, .contact-info address {
+      margin: 20px 0;
+      line-height: 1.5; /*how to stretch out or shrink the text */
+      font-size: 20px;
+      font-style: normal;
+    }
+    
+    .contact-info a {
+      color: #fce138;
     }
 
     .contact {
       text-align: center;
       background: #024e76;
+      /* background: skyblue; */
     }
 
     .contact h2 {
       color: #fce138;
+      /* color: pink; */
     }
+
+    
