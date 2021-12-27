@@ -1,0 +1,41 @@
+For each individual small box:
+.sub-container{
+display: block;
+width: 250px;
+height: 250ox;
+border: red 1px solid;
+
+
+/* Do 4 boxes, its parent defined ? as: */
+.container{
+ display: flex;
+ justify-content: center; /*| space-around| space-between| space-evently */  
+ flex-direction: row; /*|column;*/
+ flex-wrap: wrap;
+
+
+align-items: center; /* horizontally, used when parent container has finite height for rows of item (flex-direction: row|). For column of item it will center the column of item flex-direction: column*/
+height: 900px; /*what height of what item, height of the parent container*/
+}
+
+/******************************************************************************************************************/
+1.pseudo-class
+sub-containter::hover{
+}
+
+2. pseudo-element
+this makes 1st letter render differently
+
+sub-containter::first-element{
+}
+/*******************************************************************************************************************/
+Extract secret text of html tag such as h1
+data-dataattributename
+
+<h1 data-secret="my secret message">Box1</h1>
+
+h1[data-secret]:hover::after{
+  content:attr(data-secret);
+  margin-top: 10px;
+  color: violet;
+}
