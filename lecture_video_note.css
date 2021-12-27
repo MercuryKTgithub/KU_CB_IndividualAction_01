@@ -39,3 +39,37 @@ h1[data-secret]:hover::after{
   margin-top: 10px;
   color: violet;
 }
+
+img[src*="200"]{
+  border: red 5px solid;
+}
+
+<img src="http://wheremystuff.org/200" />
+
+/* developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors 
+attr*=value
+element with an attribute name of attr (src) whose value contains at least 1 occurence of "value" within the string
+a[href*="example"] {
+  border: red 5px solid;
+}
+*/
+@media screen and (max-width: 980) {
+  body{
+    background-color: rgb(128, 155, 178);
+    font-size: 125%;
+  }
+}
+
+@media screen and (max-width: 768) {
+  body{
+    background-color:rgb(140, 175, 199);
+    font-size: 125%;
+  }
+}
+
+@media screen and (max-width: 575) {
+  body{
+    background-color: rgb(168, 195, 218);
+    font-size: 125%;
+  }
+}
