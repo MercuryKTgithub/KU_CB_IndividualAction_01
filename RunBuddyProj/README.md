@@ -13,4 +13,4 @@ A website that offers fitness training services.
 ## Contribution
 Made with ❤️ by [your name]
 
-Run Buddy, Inc.  
+Run Buddy Inc.  
