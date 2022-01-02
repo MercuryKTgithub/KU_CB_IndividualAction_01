@@ -34,15 +34,25 @@ header {
     margin: 7px 0;
   }
 
-  header nav ul li {
+  /* header nav ul li { 
     display: inline;
+  } */  /* removed per flexbox impl*/
+
+  /* li is not address here: */
+  header nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
   }
 
   header nav ul li a{
-    /*display: inline;*/
+    /*display: inline;*//* removed per flexbox impl*/   
     margin: 0 30px;
     font-weight: lighter;
-    font-size: 22px;
+    /* font-size: 22px; */
+    font-size: 1.55vw; /* the font's size should be roughly 1.55% of the window's overall width*/
   }
  
   /* orginal line of section styling*/
