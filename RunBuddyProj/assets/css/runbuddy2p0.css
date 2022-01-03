@@ -405,7 +405,7 @@ header {
     flex-wrap: wrap;
    }
 
-  /* When child elements don't share a common element, target them by asterisk */
+  /* When child elements don't share a common css class, target them by asterisk */
   /* Here to make all three child elements share the space as equally as possible*/
   /* The > symbol means it's looking specifically for direct children of the element listed first. 
      In this case, it's selecting all children of the element with contact-info as its class.*/
