@@ -350,7 +350,7 @@ header {
    }
 
    .trainer {
-     flex : 1; 
+     flex: 1; /* all three child elements employ this class will share the space as equally as possible */
      /* width: 900px; */ /* removed per flex layout implementation */
      /* margin: 0 auto 30px auto; */ /* changed per flex layout implementation */
      margin: 20px;
@@ -397,23 +397,36 @@ header {
    }
    /* End of Meet The Trainers */
 
-   /*REACH OUT STYLE BEGINS*/
-   /* .contact-info{
-     margin: 0;
-   } */
+   /* REACH OUT STYLE BEGINS ------------------------*/
+   /* Parent flexbox container */
+   .contact-info{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+   }
+
+  /* When child elements don't share a common element, target them by asterisk */
+  /* Here to make all three child elements share the space as equally as possible*/
+  /* The > symbol means it's looking specifically for direct children of the element listed first. 
+     In this case, it's selecting all children of the element with contact-info as its class.*/
+  .contact-info > * { 
+    flex: 1;
+    margin: 15px;
+  }
+
 
    /* Define a Type Selector iframe (selects every HTML element of that type [iframe] ) */
    .contact-info iframe {
-     width: 450px;
+     /* width: 450px; */  /* removed per flex impl */
      height: 400px;
    }
 
    .contact-info div {
-     width: 410px;
-     display: inline-block; /*This allows the .contact-info child container [nested div] to sit on the same row as the <iframe> element */
-     vertical-align: top; /*To lift content of the div up to the top or else it's defaut to bottom*/
+     /* width: 410px;
+     display: inline-block; 
+     vertical-align: top; 
      text-align: left;
-     margin: 40px 0 0 60px;
+     margin: 40px 0 0 60px; */   /* removed per flex impl */
      color: white;
    }
 
@@ -432,7 +445,7 @@ header {
    .contact-info p, .contact-info address {
      margin: 20px 0;
      line-height: 1.5; /*how to stretch out or shrink the text */
-     font-size: 20px;
+     font-size: 16px;
      font-style: normal;
    }
    
@@ -451,17 +464,38 @@ header {
      /* color: pink; */
    }
 
+   .contact-form input, .contact-form textarea{
+      border: 1px solid #024e76;
+      display: block; /* Keep block display type */
+      padding: 7px 15px;
+      font-size: 16px;
+      color: #024e76;
+      width: 100%;
+      margin-bottom: 15px;
+      margin-top: 5px;
+   }
+
+   .contact-form button{
+      width: 100%;
+      border: none;
+      background: #fce138;
+      color: #024e76;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 16px;
+   }
+
    .text-left {
-     text-align: left;
+      text-align: left;
    }
    
    .text-right {
-     text-align: right;
+      text-align: right;
    }
 
-   /* TRepresents a CSS rule that sets up a flexbox row. */
+   /* Represents a CSS rule that sets up a flexbox row. */
    .flex-row {
-     display: flex;
+      display: flex;
    }
 
    
