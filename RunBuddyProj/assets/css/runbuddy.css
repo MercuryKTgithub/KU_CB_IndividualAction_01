@@ -175,7 +175,7 @@ header {
   /* End of Hero Section*/
 
     .intro {
-      text-align: center;
+      /* text-align: center; */
     }
 
      /* H2a */
@@ -196,23 +196,24 @@ header {
       width: 80%;
       font-size: 20px;
       margin: 0 auto; /*common tactic for centering a block element with a width of less than 100%:*/
+      text-align: center;
     }
     /* End of What We Do Section */
 
     /* Begin of What You Do Section */
     .steps {
-      text-align: center;
+      /* text-align: center; */  /* removed per flex impl*/
       background: #fce138;
     }
 
-    .steps div {
+    /* .steps div {
       margin-bottom: 80px;
     }
     
     .steps img {
       width: 15%;
       margin: 10px 0;
-    }
+    } */ /* removed per flex impl */
 
     .steps h2 {
       font-size: 55px;
@@ -223,20 +224,21 @@ header {
       border-color: #39a6b2;
     }
     
-    .steps h3 {
+    /* .steps h3 {
       color: #024e76;
       font-size: 46px;
       margin-top: 10px;
-    }
+    } */  /* removed per flex impl */
     
     .steps p {
       color: #39a6b2;
       font-size: 23px;
     }
 
-    .steps span {
+    /* .steps span {
       font-size: 38px;
-    }
+    } */  /* removed per flex impl */
+        
 
    /* H2b */
     /* .steps h2 {
@@ -251,15 +253,80 @@ header {
     /*Combine H2a and H2b , 
     do this class="section-title primary-border" for tag h2a
     do this class="section-title secondary-border" for tag h2b
-    as followed: */
+    as followed: */ 
+
+    .step{
+      margin: 50px auto;
+      padding-bottom: 50px;
+      width: 80%;
+      border-bottom: 1px solid #39a6b2;
+      
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;  /* vertially centered */
+      justify-content: space-between;
+    }
+
+    /* flex: <flex-grow value> <flex-shrink value> <flex-basis value>; */
+    /* <flex-grow value> The higher the number, the more unused space that child element will be given.
+       is a numeric value that helps determine how much of the flexbox's unused space can be distributed 
+       among its children. This number is used as a ratio,*/
+    .step-info{
+       flex: 2 70%; /* At a 2-to-1 ratio, it will receive two more units of unused space than a sibling with a flex-grow value of 1.*/
+       display: flex;
+       flex-wrap: wrap;
+       align-items: center;
+      }
+
+  /* <flex-shrink value> how to size the flexbox's children when the flexbox container shrinks. */
+  /* <flex-basis value> will let the child be that size no matter what—and grow or shrink accordingly.*/  
+  
+  .step h3 {
+      color: #024e76;
+      font-size: 46px;      
+      flex: 1 30%; /* <flex-grow value> <flex-basis value>; */
+    }
+
+    /* Now the child elements have a flex-grow property of 1 and 12, respectively. This means that .step-text will 
+    be allotted 12 times more unused space than .step-img, but .step-img at the very least must be 12 percent 
+    of the width of .step-info. as followed >> */
+
+    .step-img{
+      flex: 1 12%;
+      margin-right: 20px;
+    }
+
+    .step-text{
+      flex: 12;
+    }
+    
+    /* .step-text >> We don't even need to worry about setting a flex-basis value for .step-text. When that value 
+    is omitted, the browser gives it a value of auto, which allows it to be whatever width is left over.*/    
+
+    /* Tell the <img> element to limit its width to be whatever its container is 
+    to deal with Microsoft Edge */
+    .step-img img {
+      max-width: 100%;
+    }
+
+
+    .step-text h4 {
+      font-size: 26px;
+      line-height: 1.5;
+      color: #024e76;
+    }
 
     .section-title {
       font-size: 55px;
       color: #024e76;
-      margin-bottom: 35px;
+      /* margin-bottom: 35px;
       padding: 0 100px 20px 100px;
-      display: inline-block;
+      display: inline-block; */ /* removed per flex impl*/
       border-bottom: 3px solid;
+      padding-bottom: 20px;
+      text-align: center;
+      margin: 0 auto 35px auto;
+      width: 50%;
     }
     
     .primary-border {
@@ -272,7 +339,7 @@ header {
 
     /* Begin of Meet the Trainers */
     .trainers{
-      text-align: center;
+      /* text-align: center; */  /* removed per flex impl*/      
     }
 
     .trainer {
@@ -300,15 +367,7 @@ header {
       float: left;
       /* float: right; */
       width: 65%;
-    }
-
-    .text-left {
-      text-align: left;
-    }
-    
-    .text-right {
-      text-align: right;
-    }
+    }    
 
     .trainer-bio h3 {
       font-size: 32px;
@@ -325,6 +384,7 @@ header {
       font-size: 17px;
       line-height: 2.3;
     }
+    /* End of Meet The Trainers */
 
     /*REACH OUT STYLE BEGINS*/
     /* .contact-info{
@@ -370,7 +430,7 @@ header {
     }
 
     .contact {
-      text-align: center;
+      /* text-align: center; */  /* removed per flex impl*/
       background: #024e76;
       /* background: skyblue; */
     }
@@ -378,6 +438,19 @@ header {
     .contact h2 {
       color: #fce138;
       /* color: pink; */
+    }
+
+    .text-left {
+      text-align: left;
+    }
+    
+    .text-right {
+      text-align: right;
+    }
+
+    /* TRepresents a CSS rule that sets up a flexbox row. */
+    .flex-row {
+      display: flex;
     }
 
     
