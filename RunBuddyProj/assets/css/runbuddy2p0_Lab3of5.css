@@ -49,7 +49,8 @@ header {
 
  header nav ul li a{
    /*display: inline;*//* removed per flexbox impl*/   
-   margin: 0 30px;
+   /* margin: 0 30px; */ /* removed per lab 3 of 5 Media Querries*/
+   padding: 10px 15px; /* tighter navigation menu */
    font-weight: lighter;
    /* font-size: 22px; */
    font-size: 1.55vw; /* the font's size should be roughly 1.55% of the window's overall width*/
@@ -104,6 +105,8 @@ header {
      display: flex;
      justify-content: center;
      flex-wrap: wrap;
+
+     align-items: flex-start;
    }
 
    /* Not officially in use - for double class reference illustration only */
@@ -118,7 +121,7 @@ header {
      margin: 3.5%;
      color: #fff;
      font-size: 18px;
-     line-height: 1.3;
+     line-height: 1.2;
    }
 
    .hero-cta h2 {
@@ -215,14 +218,15 @@ header {
      margin: 10px 0;
    } */ /* removed per flex impl */
 
-   .steps h2 {
+   /* No longer need as class section-tittle will overide when applied to h2 where font-size is 48 px for all screens*/
+   /* .steps h2 {
      font-size: 55px;
      color: #024e76;
      margin-bottom: 35px;
      padding: 0 100px 20px 100px;
      border-bottom: 3px solid;
      border-color: #39a6b2;
-   }
+   } */
    
    /* .steps h3 {
      color: #024e76;
@@ -322,7 +326,7 @@ header {
   }
 
    .section-title {
-     font-size: 55px;
+     font-size: 48px; /* A font size of 48 pixels is big enough for all screens */
      color: #024e76;
      /* margin-bottom: 35px;
      padding: 0 100px 20px 100px;
@@ -416,7 +420,7 @@ header {
      In this case, it's selecting all children of the element with contact-info as its class.*/
   .contact-info > * { 
     flex: 1;
-    margin: 35px; /* vary the number to test which elements are children for sure */
+    margin: 15px; /* vary the number to test which elements are children for sure */
   }
 
 
@@ -432,7 +436,7 @@ header {
      vertical-align: top; 
      text-align: left;
      margin: 40px 0 0 60px; */   /* removed per flex impl */
-     color: white;
+     color: rgb(170, 249, 252);
    }
 
    .contact-info h3 {
@@ -502,5 +506,147 @@ header {
    .flex-row {
       display: flex;
    }
+
+   /* MEDIA QUERIES, max-width approach */
+
+   /* Logical operator "and" This media query should apply to screen media AND only 
+   when the width of that screen is less than 980 pixels. */
+
+   /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER : pick Ipad of 768 px wide */
+  @media screen and (max-width: 980px) {
+    header {
+      padding-bottom: 0;
+      justify-content: center;
+    }
+  
+    header h1 {
+      width: 100%;
+      text-align: center;
+    }
+  
+    header nav ul {
+      margin-top: 20px;
+      width: 100%;
+      justify-content: center; /* justify-content: space-between; */
+    }
+  
+    header nav ul li a {
+      font-size: 20px;
+    }
+
+    footer h2, footer div {
+      text-align: center; /* text-align: right; */
+      width: 100%;
+    } 
+
+    .hero-cta, .hero-form {
+      width: 100%;
+    }
+
+    .hero-cta {
+      text-align: center;
+    }
+
+    .section-title {
+      width: 80%;
+    }
+    
+    /* didn't want them to be completely full width because they'd be way too big. */
+    .trainer {
+      flex: 0 70%;  /*flex: 1; */ /* flex-grow 0, flex-basis 70%*/
+    }
+    
+    /* the map gets pushed down, creating a more unique layout than the others. */
+    .contact-info iframe{
+      flex: 1 100% ;
+    }
+  
+  } /* End of Media Query 980*/
+
+  /* pick Galaxy Tab S4 of 712 px wide */
+  @media screen and (max-width: 768px) {
+
+    section {
+      padding: 30px 15px;
+    }
+  
+    .step h3 {
+      flex: 1 100%; /* flex: 1 30%;*/
+      text-align: center;
+    }
+  
+    .step-info {
+      flex: 2 100%; /* flex: 2 70%; */
+      text-align: center;
+      justify-content: center;
+    }
+  
+    .step-img {
+      flex: 0 32%; /* flex: 1 12% */
+      margin-right: 0;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  
+    .step-text {
+      flex: 100%;  /* flex: 12 */
+    }
+  
+  }
+
+   /* pick LG Optimus L70 of 384 px wide */
+  @media screen and (max-width: 575px) {
+
+    .hero-form button {
+      width: 100%; /*  /*wouldn't it be easier if they had a bigger button to push considering how users are physically interacting with the page*/
+    }
+  
+    .section-title {
+      width: 95%;
+    }
+  
+    .intro p {
+      width: 100%;
+    }
+  
+    .trainer {
+      flex: 0 100%;
+    }
+  
+    .contact-info {
+      text-align: center;
+      
+    }
+
+    .contact-info p{ 
+      font-size: 14px; /* my extra */
+    }
+  
+    .contact-info > * {
+      flex: 0 100%;
+    }
+
+    .contact-form {
+      order: 3;
+    }
+  }
+
+  /* MEDIA QUERY FOR TABLETS AND SMALLER */
+  /* this will be applied on any screen between 768px AND 575px */
+    /* @media screen and (max-width: 768px) {
+      header h1 {
+       
+        font-size: 80px;
+      }
+    } */
+
+    /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+    /* this will be applied on any screen smaller than 575px */
+    /* @media screen and (max-width: 575px) {
+    header h1 {
+ 
+      font-size: 100px;
+      }
+    } */
 
    
