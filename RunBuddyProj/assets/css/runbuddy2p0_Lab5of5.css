@@ -1,0 +1,813 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+
+ /* We want the custom properties to be global, meaning that 
+ any element or class selector can use them, so we use :root pseudo-class */
+
+ :root{
+  --primary-color: #fce138;
+  --secondary-color: #024e76;
+  --tertiary-color:  #39a6b2;;
+ }
+
+body {    
+   color: var(--tertiary-color);
+   font-family: Helvetica, Arial, sans-serif;
+}
+
+header {
+   background-image: url("../images/hero-bg.jpg ");   
+   background-size: cover; /* tells the browser to make sure the image always covers the entire container, image might not be whole*/
+   background-position: center; /* affect the bg image position*/
+   background-attachment: fixed; /* places the image relative to the viewport instead of the element. */
+   background-position: 80%; /* to better match the mock-up */
+
+   padding: 20px 35px;
+   background-color: var(--tertiary-color);
+   display: flex;  
+   justify-content: space-between; 
+   flex-wrap: wrap;
+   /* Add Safari's vendor prefix to the sticky header to make sure it will be supported by Safari*/
+   position: -webkit-sticky;
+   /* Tells the browser to "stick" the element at the very top of the viewport */
+   position: sticky;
+   top: 0; /* 30px; */
+  /* Keep this header element on top of the stack, aka to the front */
+   z-index: 9999; 
+   /* to avoid future conflicts although it seem like overkill */
+}
+
+ header h1 {
+   font-weight: bold;
+   font-size: 36px;
+   color: var(--primary-color);
+   margin: 0;
+   /* display: inline; */ /* removed per flexbox impl*/
+   text-shadow: 0 0 10px rgba(33, 37, 41, 0.5); /* 0.5 indicates opacity */
+ }
+ 
+ header a {
+   text-decoration: none;
+   color: var(--primary-color);
+ }  
+ header nav {
+   /* float: right; */ /* removed per flexbox impl*/
+   margin: 7px 0;
+ }
+
+ /* header nav ul li { 
+   display: inline;
+ } */  /* removed per flexbox impl*/
+
+ /* li is not address here: */
+ header nav ul{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+   list-style: none;
+ }
+
+ header nav ul li a{
+   /*display: inline;*//* removed per flexbox impl*/   
+   /* margin: 0 30px; */ /* removed per lab 3 of 5 Media Querries*/
+   padding: 10px 15px; /* tighter navigation menu */
+   font-weight: lighter;
+   /* font-size: 22px; */
+   font-size: 1.55vw; /* the font's size should be roughly 1.55% of the window's overall width*/
+ }
+
+ header nav ul li a:hover {
+   background: var(--primary-color);
+   color: var(--secondary-color);
+   border-radius: 15px;
+   text-shadow: none;
+ }
+
+ /* orginal line of section styling*/
+
+ /* Footer Portion starts here ---------------------------------------------------*/
+ footer {
+   background: var(--primary-color);
+   width: 100%;
+   padding: 40px 35px;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+ }
+
+ footer h2 {
+   /* display: inline; */ /* removed per flexbox impl*/ 
+   color: var(--secondary-color);
+   font-size: 30px;
+   margin: 0;
+   /* font-weight: normal; */
+ }
+
+ /* Private Policy*/
+ footer div { 
+   /* float: right; */ /* removed per flexbox impl*/ 
+   line-height: 1.5;
+   text-align: right;
+ }
+
+ footer a {
+   color: var(--secondary-color);
+ }
+
+ #myid{
+   margin : 0;
+ }
+
+ section{
+   /* border:dashed 1px;  */
+   padding: 60px;
+   }
+ 
+   .hero {
+     background-image: url("../images/hero-bg.jpg");
+     /* height: 600px; */ /* removed per flexbox impl*/
+     background-size: cover; /* tells the browser to make sure the image always covers the entire container, image might not be whole*/
+     background-position: center; /* affect the bg image position*/     /* position: relative; */ /* removed per flexbox impl*/     display: flex;
+     background-attachment: fixed; /* places the image relative to the viewport instead of the element. */
+     background-position: 80%; /* to better match the mock-up */
+
+     justify-content: center;
+     flex-wrap: wrap;
+
+     align-items: flex-start;
+   }
+
+   /* Not officially in use - for double class reference illustration only */
+   /* .hero-secondary {
+     background-color: black;
+     color: red;
+   } */
+
+   .hero-cta {
+     width: 35%;
+     text-align: right;
+     margin: 3.5%;
+     color: #fff;
+     font-size: 18px;
+     line-height: 1.2;
+   }
+
+   .hero-cta h2 {
+     font-style: italic;
+     font-size: 55px;
+     color: var(--primary-color);
+   }
+ 
+   .hero-form {
+      color: var(--secondary-color);
+      border: 3px solid var(--secondary-color);
+      background-color: rgb(252, 225, 56, 85%); /* var(--primary-color); */
+      padding: 20px;
+      width: 40%;  /* new scale */
+       margin: 3.5%; /* new scale */
+       /* width: 490px;      
+      position: absolute;
+      bottom: 100px;
+       right: 120px;     */ /* removed per flexbox impl*/
+       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      -webkit-border-radius: 15px; /* old versions of chrome and safari */
+      -moz-border-radius: 15px; /* old versions of firefox */
+       border-radius: 15px; /* standardized browsers */
+   }
+  
+   .hero-form h3 {
+     font-size: 24px;
+     margin: 0;
+   }
+   
+   .hero-form p {
+     margin: 5px 0 15px 0;
+   }
+   
+   .form-input {
+     border: 1px dotted var(--secondary-color); /* want dotted border */
+     display: block; /* starts new line for each input*/
+     padding: 7px 15px;
+     font-size: 16px;
+     color: var(--secondary-color);
+     width: 100%;
+     margin-bottom: 15px;
+ 
+     border-radius: 10px;
+     background-color: rgba(253, 253, 219, 0.75);
+   }
+
+   .form-input:focus {
+      background-color: rgba(255, 255, 255, 1); /* highlight the form input field that the user is currently typing in */
+      outline: none;    
+   }
+ 
+   .hero-form label {
+     margin: 0 1px;
+     font-weight: bold;
+   }
+ 
+   .hero-form button {
+     color: var(--primary-color);
+     background-color: var(--secondary-color);
+     border: none;
+     padding: 10px 20px;
+     font-size: 16px;
+     border-radius: 10px;
+   }
+
+   .hero-form button:hover {
+      background-color: var(--tertiary-color);  
+    }
+
+    .checkbox-wrapper input, .radio-wrapper input {
+      opacity: 0; /* made all of the inputs invisible */ /* This is prob a bad idea for back-end developer */
+    }
+
+    .checkbox-wrapper label, .radio-wrapper label {
+      position: relative;
+      left: 10px;
+      margin: 10px;
+      line-height: 1.6;
+    }
+
+    .checkbox-wrapper label::before, .radio-wrapper label::before {
+      content: "";
+      height: 20px;
+      width: 20px;
+      background: rgba(255, 255, 255, 0.75);  
+      border: 1px solid var(--secondary-color);  
+      position: absolute;
+      top: -4px;
+      left: -30px;
+    }
+
+    .radio-wrapper label::before {
+      border-radius: 50%;
+    }
+
+    /* we'll need another pseudo-element to overlay on top of the first one. */
+    /* pseudo-elements do not have checked state! very risky */
+    .radio-wrapper label::after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--secondary-color);
+      position: absolute;
+      left: -29px;
+      top: -3px;
+
+      background-image: radial-gradient(circle, var(--tertiary-color), var(--secondary-color));
+    }
+    
+    .checkbox-wrapper label::after {
+      content: "";
+      height: 6px;
+      width: 14px;
+      border-left: 2px solid var(--secondary-color);
+      border-bottom: 2px solid var(--secondary-color);
+      position: absolute;
+      left: -26px;
+      top: 1px;
+
+      transform: rotate(-58deg);
+    }
+    /* We can still access the state of these inputs using a pseudo-class that incorporates visible input html elements  */
+    /* .checkbox-wrapper input:checked, .radio-wrapper input:checked {
+      opacity: 1; 
+    } */
+
+    /* the boldness of the <label> element depends on the :checked state of its sibling element! */
+    /* .checkbox-wrapper input:checked + label, .radio-wrapper input:checked + label {
+      font-weight: bold;
+    } */
+
+    /* If the radio buttons or checkboxes are in their default state, they'll have no ::after pseudo content. */
+    .checkbox-wrapper input + label::after, 
+    .radio-wrapper input + label::after {
+      content: none;
+    }
+    
+    /* As soon as an input becomes :checked, however, the content and all of the other styles defined earlier will take effect. */
+    .checkbox-wrapper input:checked + label::after, 
+    .radio-wrapper input:checked + label::after {
+      content: "";
+    }
+
+ /* End of Hero Section*/
+
+   .intro {
+     /* text-align: center; */
+   }
+
+    /* H2a */
+   /* .intro h2 {
+     display: inline-block;
+     font-size: 55px;
+     color: var(--secondary-color);
+     margin-bottom: 35px;
+     padding: 0 100px 20px 100px;
+     border-bottom: 3px solid;
+     border-color: var(--primary-color);
+      
+   } */
+
+   .intro p {
+     line-height: 1.7;
+     color: var(--tertiary-color);
+     width: 80%;
+     font-size: 20px;
+     margin: 0 auto; /*common tactic for centering a block element with a width of less than 100%:*/
+     text-align: center;
+   }
+   /* End of What We Do Section */
+
+   /* Begin of What You Do Section */
+   .steps {
+     /* text-align: center; */  /* removed per flex impl*/
+     background: var(--primary-color);
+   }
+
+   /* .steps div {
+     margin-bottom: 80px;
+   }
+   
+   .steps img {
+     width: 15%;
+     margin: 10px 0;
+   } */ /* removed per flex impl */
+
+   /* No longer need as class section-tittle will overide when applied to h2 where font-size is 48 px for all screens*/
+   /* .steps h2 {
+     font-size: 55px;
+     color: var(--secondary-color);
+     margin-bottom: 35px;
+     padding: 0 100px 20px 100px;
+     border-bottom: 3px solid;
+     border-color: var(--tertiary-color);
+   } */
+   
+   /* .steps h3 {
+     color: var(--secondary-color);
+     font-size: 46px;
+     margin-top: 10px;
+   } */  /* removed per flex impl */
+   
+   /* .steps p {
+     color: var(--tertiary-color);
+     font-size: 23px;
+   } */
+
+   /* .steps span {
+     font-size: 38px;
+   } */  /* removed per flex impl */
+       
+
+  /* H2b */
+   /* .steps h2 {
+     font-size: 55px;
+     color: var(--secondary-color);
+     margin-bottom: 35px;
+     padding: 0 100px 20px 100px;
+     border-bottom: 3px solid;
+     border-color: var(--tertiary-color);
+   } */
+
+   /*Combine H2a and H2b , 
+   do this class="section-title primary-border" for tag h2a
+   do this class="section-title secondary-border" for tag h2b
+   as followed: */ 
+
+   .step{
+     margin: 50px auto;
+     padding-bottom: 50px;
+     width: 80%;
+     /* border-bottom: 1px solid var(--tertiary-color);  */ /* Dont wanna show border at each step anymore*/
+     
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;  /* vertially centered */
+     justify-content: space-between;
+   }
+
+   /* This selector will only apply to an element with class .step that  
+      is also the last element in whatever container it's in.*/
+   /* Make it that border only appears under the last step now */
+   /* .step:last-child {
+      border-bottom: 1px solid var(--tertiary-color);
+    } */
+
+    /* .step:nth-child(even) {
+      border-bottom: 1px solid var(--tertiary-color);
+    } */
+
+    .step:not(:last-child) {
+      border-bottom: 1px solid var(--tertiary-color);
+    }
+
+   /* flex: <flex-grow value> <flex-shrink value> <flex-basis value>; */
+   /* <flex-grow value> The higher the number, the more unused space that child element will be given.
+      is a numeric value that helps determine how much of the flexbox's unused space can be distributed 
+      among its children. This number is used as a ratio,*/
+   .step-info{
+      flex: 2 70%; /* At a 2-to-1 ratio, it will receive two more units of unused space than a sibling with a flex-grow value of 1.*/
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+     }
+
+ /* <flex-shrink value> how to size the flexbox's children when the flexbox container shrinks. */
+ /* <flex-basis value> will let the child be that size no matter what—and grow or shrink accordingly.*/  
+ 
+ .step h3 {
+     color: var(--secondary-color);
+     font-size: 46px;      
+     flex: 1 30%; /* <flex-grow value> <flex-basis value>; */
+   }
+
+   /* Now the child elements have a flex-grow property of 1 and 12, respectively. This means that .step-text will 
+   be allotted 12 times more unused space than .step-img, but .step-img at the very least must be 12 percent 
+   of the width of .step-info. as followed >> */
+
+   .step-img{
+     flex: 1 12%;
+     margin-right: 20px;
+   }
+
+   .step-text{
+     flex: 12;
+   }
+   
+   /* .step-text >> We don't even need to worry about setting a flex-basis value for .step-text. When that value 
+   is omitted, the browser gives it a value of auto, which allows it to be whatever width is left over.*/    
+
+   /* Tell the <img> element to limit its width to be whatever its container is 
+   to deal with Microsoft Edge */
+   .step-img img {
+     max-width: 100%;
+   }
+
+
+   .step-text h4 {
+     font-size: 26px;
+     line-height: 1.5;
+     color: var(--secondary-color);
+   }
+
+   .step-text p {
+    color: var(--tertiary-color);
+    font-size: 18px;
+  }
+
+   .section-title {
+     font-size: 48px; /* A font size of 48 pixels is big enough for all screens */
+     color: var(--secondary-color);
+     /* margin-bottom: 35px;
+     padding: 0 100px 20px 100px;
+     display: inline-block; */ /* removed per flex impl*/
+     border-bottom: 3px solid;
+     padding-bottom: 20px;
+     text-align: center;
+     margin: 0 auto 35px auto;
+     width: 50%;
+   }
+   
+   .primary-border {
+     border-color: var(--primary-color);
+   }
+   
+   .secondary-border {
+     border-color: var(--tertiary-color);
+   }
+
+   /* Three-column card layout implementation: */
+   /* Begin of Meet the Trainers */
+   .trainers{
+     /* text-align: center; */  /* removed per flex impl*/ 
+     width: 100%;
+     margin: 0 auto;
+     
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;     
+   }
+
+   .trainer {
+     flex: 1; /* all three child elements employ this class will share the space as equally as possible */
+     /* width: 900px; */ /* removed per flex layout implementation */
+     /* margin: 0 auto 30px auto; */ /* changed per flex layout implementation */
+     margin: 20px;
+     /* By using auto as the values for the left and right margin, we're telling the 
+     browser to take whatever space is unused and evenly distribute it on those 
+     sides, centering the element. */
+     background: var(--secondary-color);
+     color: var(--primary-color);
+     /* overflow: auto;  */ /* removed per flex layout implementation */
+     /*The overflow property told the trainer's <article> element that it 
+     does in fact have content inside it, and that it needs to look for it 
+     and account for those two floated HTML elements' sizes*/
+   } 
+
+   .trainer img {
+     width: 100%;
+     /* width: 35%; */ /* increased per flex layout implementation */
+     /* float: left; */ /* removed per flex layout implementation */
+     
+   }
+ 
+   .trainer-bio {
+     padding: 25px; /* changed per flex layout implementation */
+     /* float: left; */ /* removed per flex layout implementation */
+     
+     /* width: 65%; */ /* removed per flex layout implementation */
+     line-height: 1.5;
+   }    
+
+   .trainer-bio h3 {
+     font-size: 28px;
+     /* margin-bottom: 8px; */ /* removed per flex impl */
+   }
+   
+   .trainer-bio h4 {
+     font-weight: lighter;
+     font-size: 22px;
+     margin-bottom: 15px;
+   }
+   
+   .trainer-bio p {
+     font-size: 17px;
+     
+   }
+   /* End of Meet The Trainers */
+
+   /* REACH OUT STYLE BEGINS ------------------------*/
+   /* Parent flexbox container */
+   .contact-info{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+   }
+
+  /* When child elements don't share a common css class, target them by asterisk */
+  /* Here to make all three child elements share the space as equally as possible*/
+  /* The > symbol means it's looking specifically for direct children of the element listed first. 
+     In this case, it's selecting all children of the element with contact-info as its class.*/
+  .contact-info > * { 
+    flex: 1;
+    margin: 15px; /* vary the number to test which elements are children for sure */
+  }
+
+
+   /* Define a Type Selector iframe (selects every HTML element of that type [iframe] ) */
+   .contact-info iframe {
+     /* width: 450px; */  /* removed per flex impl */
+     height: 400px;
+   }
+
+   .contact-info div {
+     /* width: 410px;
+     display: inline-block; 
+     vertical-align: top; 
+     text-align: left;
+     margin: 40px 0 0 60px; */   /* removed per flex impl */
+     color: rgb(170, 249, 252);
+   }
+
+   .contact-info h3 {
+     color: var(--primary-color);
+     font-size: 32px;
+   }
+   
+   /* .contact-info p {
+     margin: 20px 0;
+     line-height: 1.5;
+     font-size: 20px;
+     font-style: normal;
+   } */
+
+   .contact-info p, .contact-info address {
+     margin: 20px 0;
+     line-height: 1.5; /*how to stretch out or shrink the text */
+     font-size: 16px;
+     font-style: normal;
+   }
+   
+   .contact-info a {
+     color: var(--primary-color);
+   }
+
+   .contact {
+     /* text-align: center; */  /* removed per flex impl*/
+     background: var(--secondary-color);
+     /* background: skyblue; */
+   }
+
+   .contact h2 {
+     color: var(--primary-color);
+     /* color: pink; */
+   }
+
+   .contact-form input, .contact-form textarea{
+      border: 1px solid var(--secondary-color);
+      display: block; /* Keep block display type */
+      padding: 7px 15px;
+      font-size: 16px;
+      color: var(--secondary-color);
+      width: 100%;
+      margin-bottom: 15px;
+      margin-top: 5px;
+
+      border-radius: 10px;
+      background-color: rgba(253, 253, 219, 0.75);
+   }
+
+   .contact-form input:focus, .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 1); /* highlight the form input field when typing, same as form-input behavior */
+      outline: none;    
+   }
+
+   .contact-form button{
+      width: 100%;
+      border: none;
+      background: var(--primary-color);
+      color: var(--secondary-color);
+      text-align: center;
+      padding: 15px 0;
+      font-size: 16px;
+
+      border-radius: 10px;
+   }
+
+   .contact-form button:hover {
+      color: var(--primary-color);
+      background: var(--tertiary-color);
+      outline: none;
+    }
+
+   .text-left {
+      text-align: left;
+   }
+   
+   .text-right {
+      text-align: right;
+   }
+
+   /* Represents a CSS rule that sets up a flexbox row. */
+   .flex-row {
+      display: flex;
+   }
+
+   /* MEDIA QUERIES, max-width approach */
+
+   /* Logical operator "and" This media query should apply to screen media AND only 
+   when the width of that screen is less than 980 pixels. */
+
+   /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER : pick Ipad of 768 px wide */
+  @media screen and (max-width: 980px) {
+    header {
+      padding-bottom: 0;
+      justify-content: center;
+      /* keep the stickiness for smaller desktop screens to maitain same behavior seen on desktop screen */
+      /* position: relative;  to undo the stickiness for smaller screen sizes - important */
+    }
+  
+    header h1 {
+      width: 100%;
+      text-align: center;
+    }
+  
+    header nav ul {
+      margin-top: 20px;
+      width: 100%;
+      justify-content: center; /* justify-content: space-between; */
+    }
+  
+    header nav ul li a {
+      font-size: 20px;
+    }
+
+    footer h2, footer div {
+      text-align: center; /* text-align: right; */
+      width: 100%;
+    } 
+
+    .hero-cta, .hero-form {
+      width: 100%;
+    }
+
+    .hero-cta {
+      text-align: center;
+    }
+
+    .section-title {
+      width: 80%;
+    }
+    
+    /* didn't want them to be completely full width because they'd be way too big. */
+    .trainer {
+      flex: 0 70%;  /*flex: 1; */ /* flex-grow 0, flex-basis 70%*/
+    }
+    
+    /* the map gets pushed down, creating a more unique layout than the others. */
+    .contact-info iframe{
+      flex: 1 100% ;
+    }
+  
+  } /* End of Media Query 980*/
+
+  /* pick Galaxy Tab S4 of 712 px wide to test */
+  @media screen and (max-width: 768px) {
+
+    section {
+      padding: 30px 15px;
+    }
+  
+    .step h3 {
+      flex: 1 100%; /* flex: 1 30%;*/
+      text-align: center;
+    }
+  
+    .step-info {
+      flex: 2 100%; /* flex: 2 70%; */
+      text-align: center;
+      justify-content: center;
+    }
+  
+    .step-img {
+      flex: 0 32%; /* flex: 1 12% */
+      margin-right: 0;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  
+    .step-text {
+      flex: 100%;  /* flex: 12 */
+    }
+  
+  }
+
+   /* pick LG Optimus L70 of 384 px wide */
+  @media screen and (max-width: 575px) {
+  header{
+    position: relative; /* test with LG Optimus - No more sticky header */
+  }
+    .hero-form button {
+      width: 100%; /*  /*wouldn't it be easier if they had a bigger button to push considering how users are physically interacting with the page*/
+    }
+  
+    .section-title {
+      width: 95%;
+    }
+  
+    .intro p {
+      width: 100%;
+    }
+  
+    .trainer {
+      flex: 0 100%;
+    }
+  
+    .contact-info {
+      text-align: center;
+      
+    }
+
+    .contact-info p{ 
+      font-size: 14px; /* my extra */
+    }
+  
+    .contact-info > * {
+      flex: 0 100%;
+    }
+
+    .contact-form {
+      order: 3;
+    }
+
+    
+  }
+
+  /* MEDIA QUERY FOR TABLETS AND SMALLER */
+  /* this will be applied on any screen between 768px AND 575px */
+    /* @media screen and (max-width: 768px) {
+      header h1 {
+       
+        font-size: 80px;
+      }
+    } */
+
+    /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+    /* this will be applied on any screen smaller than 575px */
+    /* @media screen and (max-width: 575px) {
+    header h1 {
+ 
+      font-size: 100px;
+      }
+    } */
+
+   
