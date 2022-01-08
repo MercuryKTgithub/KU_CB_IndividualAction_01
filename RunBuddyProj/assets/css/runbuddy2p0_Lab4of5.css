@@ -35,7 +35,7 @@ header {
    color: #fce138;
    margin: 0;
    /* display: inline; */ /* removed per flexbox impl*/
-   text-shadow: 0 0 10px rgba(33, 37, 41, 0.5);
+   text-shadow: 0 0 10px rgba(33, 37, 41, 0.5); /* 0.5 indicates opacity */
  }
  
  header a {
@@ -117,7 +117,7 @@ header {
    }
  
    .hero {
-     background-image: url("../images/hero-bg.jpg ");
+     background-image: url("../images/hero-bg.jpg");
      /* height: 600px; */ /* removed per flexbox impl*/
      background-size: cover; /* tells the browser to make sure the image always covers the entire container, image might not be whole*/
      background-position: center; /* affect the bg image position*/     /* position: relative; */ /* removed per flexbox impl*/     display: flex;
@@ -165,7 +165,7 @@ header {
        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       -webkit-border-radius: 15px; /* old versions of chrome and safari */
       -moz-border-radius: 15px; /* old versions of firefox */
-      border-radius: 15px; /* standardized browsers */
+       border-radius: 15px; /* standardized browsers */
    }
   
    .hero-form h3 {
@@ -186,11 +186,12 @@ header {
      width: 100%;
      margin-bottom: 15px;
  
+     border-radius: 10px;
      background-color: rgba(253, 253, 219, 0.75);
    }
 
    .form-input:focus {
-      background-color: rgba(255,255,255, 1); /* highlight the form input field that the user is currently typing in */
+      background-color: rgba(255, 255, 255, 1); /* highlight the form input field that the user is currently typing in */
       outline: none;    
    }
  
@@ -205,6 +206,7 @@ header {
      border: none;
      padding: 10px 20px;
      font-size: 16px;
+     border-radius: 10px;
    }
 
    .hero-form button:hover {
@@ -533,11 +535,12 @@ header {
       margin-bottom: 15px;
       margin-top: 5px;
 
+      border-radius: 10px;
       background-color: rgba(253, 253, 219, 0.75);
    }
 
    .contact-form input:focus, .contact-form textarea:focus {
-      background-color: rgba(255,255,255, 1); /* highlight the form input field when typing, same as form-input behavior */
+      background-color: rgba(255, 255, 255, 1); /* highlight the form input field when typing, same as form-input behavior */
       outline: none;    
    }
 
@@ -549,6 +552,8 @@ header {
       text-align: center;
       padding: 15px 0;
       font-size: 16px;
+
+      border-radius: 10px;
    }
 
    .contact-form button:hover {
