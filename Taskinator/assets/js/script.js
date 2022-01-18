@@ -1,19 +1,27 @@
 
 var formEl = document.querySelector("#task-form");
-
 // unorderred list obj waiting for listItemEl has a div child item call taskInfoEl
 var tasksToDoEl = document.querySelector("#tasks-to-do"); 
 
-// Dynamically get the value of the input 
-// var taskNameInput = document.querySelector("input[name='task-name']").value;
-//var taskNameInputVice = document.getElementById("input[name='tast-name']");
-//console.log(taskNameInput);
-
-var createTaskHandler = function(event) {
+var taskFormHandler = function(event) {
   event.preventDefault();
+  // Dynamically get the value of the input: 
   var taskNameInput = document.querySelector("input[name='task-name']").value;
   var taskTypeInput = document.querySelector("select[name='task-type']").value;
+  //console.log(taskNameInput);
 
+  // package up data as an object
+  var taskDataObj = {
+    name: taskNameInput,
+    type: taskTypeInput
+  };
+
+  // send it as an argument to createTaskEl
+  createTaskEl(taskDataObj);
+
+};
+
+var createTaskEl = function(taskDataObj) {
   var listItemEl = document.createElement("li");
   listItemEl.className = "task-item";
 
@@ -23,13 +31,13 @@ var createTaskHandler = function(event) {
   taskInfoEl.className = "task-info";
 
   // add HTML content to div
-  taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskNameInput + "</h3><span class='task-type'>" + taskTypeInput + "</span>";
+  taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
   listItemEl.appendChild(taskInfoEl); // add div element to li element, div element is consider a child of li in this case
 
   //listItemEl.textContent = taskNameInput; //"This is a new task.";
   tasksToDoEl.appendChild(listItemEl); //ul adds li
-};
+}
 
-formEl.addEventListener("submit", createTaskHandler);
+formEl.addEventListener("submit", taskFormHandler);
 
 //buttonEl.addEventListener("click", createTaskHandler);
