@@ -1,10 +1,19 @@
 
 var taskIdCounter = 0;
 var formEl = document.querySelector("#task-form");
-var tasksToDoEl = document.querySelector("#tasks-to-do");
-var pageContentEl = document.querySelector("#page-content");
 
-// (1) function 1
+// the main tag:
+var pageContentEl = document.querySelector("#page-content");
+// the 1st unordered bullet list ul
+var tasksToDoEl = document.querySelector("#tasks-to-do");
+// the 2 unordered bullet lists ul's
+var tasksInProgressEl = document.querySelector("#tasks-in-progress");
+var tasksCompletedEl = document.querySelector("#tasks-completed");
+
+// Remember that tasksToDoEl, tasksInProgressEl, and tasksCompletedEl are 
+// references to the <ul> elements
+
+// (1) function 1 - The form click event
 var taskFormHandler = function(event) {
   event.preventDefault();
   var taskNameInput = document.querySelector("input[name='task-name'").value;
@@ -21,12 +30,39 @@ var taskFormHandler = function(event) {
   document.querySelector("input[name='task-name']").value = "";
   document.querySelector("select[name='task-type']").selectedIndex = 0;
 
-  var taskDataObj = {
-    name: taskNameInput,
-    type: taskTypeInput
-  };
+  // new
+  var isEdit = formEl.hasAttribute("data-task-id");
+  
+  // has data attribute, so get task id and call function to complete edit process
+  if (isEdit) {
+    var taskId = formEl.getAttribute("data-task-id");
+    completeEditTask(taskNameInput, taskTypeInput, taskId);
+  } 
+  // no data attribute, so create object as normal and pass to createTaskEl function
+  else {
+    //older
+    var taskDataObj = {
+      name: taskNameInput,
+      type: taskTypeInput
+    };
+    createTaskEl(taskDataObj); // will only get called if isEdit is false
+  }
 
-  createTaskEl(taskDataObj); // action!
+};
+
+// 1(A)
+var completeEditTask = function(taskName, taskType, taskId) {
+  // console.log(taskName, taskType, taskId);
+  // find the matching task list item
+  var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
+
+  // set new values
+  taskSelected.querySelector("h3.task-name").textContent = taskName;
+  taskSelected.querySelector("span.task-type").textContent = taskType;
+
+  alert("Task Updated!");
+  formEl.removeAttribute("data-task-id");
+  document.querySelector("#save-task").textContent = "Add Task";
 };
 
 // (2) function 2
@@ -154,7 +190,36 @@ var taskButtonHandler = function(event) {
   }
 };
 
+// (4) or 3(C)
+var taskStatusChangeHandler = function(event) {
+  // get the task item's id
+  var taskId = event.target.getAttribute("data-task-id");
+
+  // get the currently selected option's value and convert to lowercase
+  // helps future-proof the app in case we ever changed how the status text is displayed
+  var statusValue = event.target.value.toLowerCase(); // to do, in progress, completed
+
+  // find the parent task item element based on the id - it's actually a li item within the ul
+  var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
+  console.log(taskSelected);
+
+  // do something about taskSelected ---------------------------------------------------
+  // appendChild() here is that it didn't create a copy of the task. It actually moved 
+  // the task item from its original location in the DOM into the other <ul>.
+  if (statusValue === "to do") {
+    tasksToDoEl.appendChild(taskSelected);
+  } 
+  else if (statusValue === "in progress") {
+    tasksInProgressEl.appendChild(taskSelected);
+  } 
+  else if (statusValue === "completed") {
+    tasksCompletedEl.appendChild(taskSelected);
+  }
+
+};
 
 pageContentEl.addEventListener("click", taskButtonHandler);
+
+pageContentEl.addEventListener("change", taskStatusChangeHandler); // most complicated
 
 formEl.addEventListener("submit", taskFormHandler);
