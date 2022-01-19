@@ -13,6 +13,8 @@ var tasksCompletedEl = document.querySelector("#tasks-completed");
 // Remember that tasksToDoEl, tasksInProgressEl, and tasksCompletedEl are 
 // references to the <ul> elements
 
+var tasks = [];
+
 // (1) function 1 - The form click event
 var taskFormHandler = function(event) {
   event.preventDefault();
@@ -43,7 +45,8 @@ var taskFormHandler = function(event) {
     //older
     var taskDataObj = {
       name: taskNameInput,
-      type: taskTypeInput
+      type: taskTypeInput, 
+      status: "to do"
     };
     createTaskEl(taskDataObj); // will only get called if isEdit is false
   }
@@ -60,13 +63,25 @@ var completeEditTask = function(taskName, taskType, taskId) {
   taskSelected.querySelector("h3.task-name").textContent = taskName;
   taskSelected.querySelector("span.task-type").textContent = taskType;
 
+  // loop through tasks array and task object with new content
+  for (var i = 0; i < tasks.length; i++) {
+    if (tasks[i].id === parseInt(taskId)) {
+      tasks[i].name = taskName;
+      tasks[i].type = taskType;
+    }
+  };
+
   alert("Task Updated!");
   formEl.removeAttribute("data-task-id");
   document.querySelector("#save-task").textContent = "Add Task";
 };
 
-// (2) function 2
+// (2) function 2 -- create the horizonal item that gets add to the main page-content
 var createTaskEl = function(taskDataObj) {
+  // testing only
+  console.log(taskDataObj);
+  console.log(taskDataObj.status);
+
   // create list item
   var listItemEl = document.createElement("li");
   listItemEl.className = "task-item";
@@ -86,6 +101,10 @@ var createTaskEl = function(taskDataObj) {
   taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
   listItemEl.appendChild(taskInfoEl);
 
+  // new - array push here
+  taskDataObj.id = taskIdCounter;
+  tasks.push(taskDataObj); //This method adds any content between the parentheses to the end of the specified array.
+
   // add button stuff within a task item
   var taskActionsEl = createTaskActions(taskIdCounter); //new, call to funcion (3), returned item is a compact item
   listItemEl.appendChild(taskActionsEl);
@@ -93,8 +112,10 @@ var createTaskEl = function(taskDataObj) {
 
   // add list item to list
   tasksToDoEl.appendChild(listItemEl);
+
   // increase task counter for next unique id
   taskIdCounter++;
+
 };
 
 // (3) function 3 :: returns the div object that contains all the action-buttons which are also get created in the function body
@@ -169,6 +190,20 @@ var deleteTask = function(taskId) {
   var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
   taskSelected.remove(); // remove is built-in function ?!
   //console.log(taskSelected);
+
+  // create new array to hold updated list of tasks
+  var updatedTaskArr = [];
+
+  // loop through current tasks
+  for (var i = 0; i < tasks.length; i++) {
+    // if tasks[i].id does NOT match the value of taskId, let's keep that task and push it into the new array
+    if (tasks[i].id !== parseInt(taskId)) {
+      updatedTaskArr.push(tasks[i]);
+    }
+  }
+
+// reassign tasks array to be the same as updatedTaskArr
+tasks = updatedTaskArr; //need to keep the tasks array variable up-to-date at all times
 };
 
 // (3A)
@@ -204,7 +239,7 @@ var taskStatusChangeHandler = function(event) {
   console.log(taskSelected);
 
   // do something about taskSelected ---------------------------------------------------
-  // appendChild() here is that it didn't create a copy of the task. It actually moved 
+  // appendChild() didn't create a copy of the task. It actually moved 
   // the task item from its original location in the DOM into the other <ul>.
   if (statusValue === "to do") {
     tasksToDoEl.appendChild(taskSelected);
@@ -214,6 +249,13 @@ var taskStatusChangeHandler = function(event) {
   } 
   else if (statusValue === "completed") {
     tasksCompletedEl.appendChild(taskSelected);
+  }
+
+  // update task's in tasks array
+  for (var i = 0; i < tasks.length; i++) {
+    if (tasks[i].id === parseInt(taskId)) {
+      tasks[i].status = statusValue;
+    }
   }
 
 };
