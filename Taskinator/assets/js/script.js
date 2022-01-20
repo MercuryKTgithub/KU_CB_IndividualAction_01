@@ -74,6 +74,8 @@ var completeEditTask = function(taskName, taskType, taskId) {
   alert("Task Updated!");
   formEl.removeAttribute("data-task-id");
   document.querySelector("#save-task").textContent = "Add Task";
+
+  saveTasks();
 };
 
 // (2) function 2 -- create the horizonal item that gets add to the main page-content
@@ -115,6 +117,8 @@ var createTaskEl = function(taskDataObj) {
 
   // increase task counter for next unique id
   taskIdCounter++;
+
+  saveTasks();
 
 };
 
@@ -202,8 +206,10 @@ var deleteTask = function(taskId) {
     }
   }
 
-// reassign tasks array to be the same as updatedTaskArr
-tasks = updatedTaskArr; //need to keep the tasks array variable up-to-date at all times
+  // reassign tasks array to be the same as updatedTaskArr
+  tasks = updatedTaskArr; //need to keep the tasks array variable up-to-date at all times
+  saveTasks();
+
 };
 
 // (3A)
@@ -258,10 +264,36 @@ var taskStatusChangeHandler = function(event) {
     }
   }
 
+  saveTasks();
+  
+
 };
+
+var saveTasks = function() {
+  //localStorage.setItem() saves data to localStorage.
+  localStorage.setItem("mytasks", JSON.stringify(tasks)); // converted the tasks array into a string
+}
+
+var loadTasks = function() {
+  var savedTasks = localStorage.getItem("mytasks");
+
+  if (!savedTasks) {
+    return false;
+  }
+
+  savedTasks = JSON.parse(savedTasks);
+
+  // loop through savedTasks array
+  for (var i = 0; i < savedTasks.length; i++) {
+    // pass each task object into the `createTaskEl()` function
+    createTaskEl(savedTasks[i]);
+  }
+}
 
 pageContentEl.addEventListener("click", taskButtonHandler);
 
 pageContentEl.addEventListener("change", taskStatusChangeHandler); // most complicated
 
 formEl.addEventListener("submit", taskFormHandler);
+
+loadTasks();
