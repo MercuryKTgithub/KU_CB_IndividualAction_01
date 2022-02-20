@@ -20,7 +20,7 @@
 ## License
 #### Apache License 2.0 
 - [Markdown Editor](#markdown-editor)
-## (#Contributing)
+#Contributing
 ##### Parties Of Contributors ABC 
   
 ## Test
