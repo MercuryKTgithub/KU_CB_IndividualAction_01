@@ -21,7 +21,7 @@
 #### Apache License 2.0 
 - [Markdown Editor](#markdown-editor)
 ##### Lorem ipsum, dolor sit amet consectetur adipisicing elit.[3]
-[Contributing](#Contributing)
+[Contributing](Contributing)
 ##### Parties Of Contributors ABC 
   
 ## Test
