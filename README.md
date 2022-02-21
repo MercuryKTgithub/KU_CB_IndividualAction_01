@@ -10,7 +10,7 @@
  1. [Header Name](#header-name)
   
 ####  
-[+Contributing](#contributing)
+1. [Contributing](#contributing)
  
 ## Installation
 ##### Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi neque animi quo cupiditate commodi saepe culpa sed itaque velit maiores optio dolorem excepturi aperiam dolores, voluptatibus suscipit amet quis repellat! .[1]
@@ -24,7 +24,7 @@
 ##### Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi neque animi quo cupiditate commodi saepe culpa sed itaque velit maiores optio dolorem excepturi aperiam dolores, voluptatibus suscipit amet quis repellat! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi neque animi quo cupiditate commodi saepe culpa sed itaque velit maiores optio dolorem excepturi aperiam dolores, voluptatibus suscipit amet quis repellat [3]
 
  
-## +Contributing
+## Contributing
 ##### Parties Of Contributors ABC 
   
 ## Test
