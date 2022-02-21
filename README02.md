@@ -12,7 +12,7 @@
 ### [Installation](#installation)
 ### [Usage](#usage)
 ### [Contributing](#contributing)
-### [License](#license)
+### [License Information](#license-information)
 
 
 
