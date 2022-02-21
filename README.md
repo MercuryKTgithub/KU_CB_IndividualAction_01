@@ -10,7 +10,7 @@
  1. [Header Name](#header-name)
   
 ####  
-[Contributing Information](#contributing)
+[Contributing Information](#contributing-information)
  
 ## Installation
 ##### Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi neque animi quo cupiditate commodi saepe culpa sed itaque velit maiores optio dolorem excepturi aperiam dolores, voluptatibus suscipit amet quis repellat! .[1]
